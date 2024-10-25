@@ -4,6 +4,7 @@ import { useForm, Controller } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Tooltip } from "@mui/material"; // For better descriptions
+import ReactMarkdown from 'react-markdown';
 
 function TwoColumnForm() {
   const [isOpen, setIsOpen] = useState(false);
@@ -234,7 +235,7 @@ function TwoColumnForm() {
       {campaignDetails && (
           <div className="text-sm bg-gray-700 pt-2 px-6 pb-2 rounded-lg">
             <h2 className="text-2xl font-semibold mb-4">Campaign Details</h2>
-            <p className="mb-2">Text: {campaignDetails.text}</p>
+            <ReactMarkdown className="mb-2">{String(campaignDetails.text)}</ReactMarkdown>
             <p className="mb-2">Best Time to Campaign: {campaignDetails.bestCampaignTime}</p>
             <p className="mb-2">Current Festival: {campaignDetails.currentFestival}</p>
             {campaignDetails.imageBase64 && (
