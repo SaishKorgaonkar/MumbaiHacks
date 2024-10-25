@@ -175,6 +175,7 @@ const CampaignDashboard = () => {
                   {...field}
                   placeholder="Enter custom prompt details"
                   className="textarea textarea-bordered w-full"
+                  onChange={(e) => field.onChange(e.target.value)} // Ensure value is passed correctly
                 ></textarea>
               )}
             />

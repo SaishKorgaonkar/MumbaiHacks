@@ -49,7 +49,7 @@ function generateMarketingPrompt({
   festival,
   companyName,
   callToAction,
-  customPrompt,
+  promptTemplate,
 }) {
   return `Create a marketing campaign for a product. 
           Company: ${companyName}.
@@ -60,8 +60,8 @@ function generateMarketingPrompt({
           Festival: ${
             festival ? `Align with ${festival} festival.` : "General campaign"
           }
-          ${customPrompt ? `Custom Prompt: ${customPrompt}.` : ""}
-          Provide a detailed plan including key messages, channels, strategies, a tagline, captions, and recommended hashtags. Call to Action: ${callToAction}`;
+          ${promptTemplate ? `Custom Prompt: ${promptTemplate}.` : ""}
+          You're only supposed to provide a tagline, captions, and recommended hashtags. Call to Action: ${callToAction} Keep it very short and don't try to use markdown`;
 }
 
 // Helper function to generate image using Hugging Face API and return it as a Base64 string
@@ -102,8 +102,9 @@ app.post("/generate-campaign", async (req, res) => {
       tone,
       companyName,
       callToActionLink,
-      customPrompt,
+      promptTemplate,
     } = req.body;
+    console.log(promptTemplate);
 
     // Validate input
     if (
@@ -131,7 +132,7 @@ app.post("/generate-campaign", async (req, res) => {
       festival,
       companyName,
       callToAction: callToActionLink,
-      customPrompt,
+      promptTemplate,
     });
 
     // Generate content with Google Generative AI
@@ -142,7 +143,8 @@ app.post("/generate-campaign", async (req, res) => {
     // Generate campaign image as Base64
     const imageDescription = `${product} campaign featuring ${
       festival ? festival : "a general theme"
-    } with a focus on ${targetAudience}. Company: ${companyName}. Tone: ${tone}.`;
+    } with a focus on ${targetAudience}. Company: ${companyName}. Tone: ${tone}. ${promptTemplate}`;
+    console.log("Image Description:", imageDescription);
     const imageBase64 = await generateImage(imageDescription);
 
     // Respond with campaign details and image blob
