@@ -1,0 +1,92 @@
+/* src/styles/custom-dashboard.css */
+
+.dashboard-container {
+    padding-top: 30px;
+}
+
+.dashboard-box {
+    background-color: #1c1c1e;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+}
+
+.dashboard-title {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.dashboard-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-input {
+    background-color: #2c2c2e;
+    color: #ffffff;
+}
+
+.dashboard-input-label {
+    color: #b3b3b3;
+}
+
+.dashboard-input .MuiOutlinedInput-root {
+    color: #ffffff;
+}
+
+.dashboard-input input,
+.dashboard-input .MuiInputBase-root,
+.dashboard-input select {
+    color: #ffffff;
+}
+
+.dashboard-input .MuiOutlinedInput-notchedOutline {
+    border-color: #444444;
+}
+
+.dashboard-input:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #90caf9;
+}
+
+.dashboard-input-select {
+    color: #ffffff;
+}
+
+.custom-date-picker {
+    background-color: #2c2c2e;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    width: 100%;
+}
+
+.custom-date-picker .react-datepicker__day--selected,
+.custom-date-picker .react-datepicker__day--keyboard-selected {
+    background-color: #90caf9;
+    color: #000;
+}
+
+.custom-date-picker .react-datepicker__input-container input {
+    color: #ffffff;
+    padding: 10px;
+    width: 100%;
+}
+
+.dashboard-button {
+    background-color: #2196f3;
+    color: #ffffff;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 10px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-button:hover {
+    background-color: #1769aa;
+}

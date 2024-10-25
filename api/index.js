@@ -1,7 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-const fs = require("fs");
 const fetch = require("node-fetch");
 const cors = require("cors");
 
@@ -48,8 +47,12 @@ function generateMarketingPrompt({
   campaignGoal,
   tone,
   festival,
+  companyName,
+  callToAction,
+  customPrompt,
 }) {
   return `Create a marketing campaign for a product. 
+          Company: ${companyName}.
           Product: ${product}. 
           Target Audience: ${targetAudience}. 
           Campaign Goal: ${campaignGoal}. 
@@ -57,7 +60,8 @@ function generateMarketingPrompt({
           Festival: ${
             festival ? `Align with ${festival} festival.` : "General campaign"
           }
-          Provide a detailed plan including key messages, channels, strategies, a tagline, captions, and recommended hashtags.`;
+          ${customPrompt ? `Custom Prompt: ${customPrompt}.` : ""}
+          Provide a detailed plan including key messages, channels, strategies, a tagline, captions, and recommended hashtags. Call to Action: ${callToAction}`;
 }
 
 // Helper function to generate image using Hugging Face API and return it as a Base64 string
@@ -91,14 +95,29 @@ function getBestCampaignTime() {
 // Main POST endpoint
 app.post("/generate-campaign", async (req, res) => {
   try {
-    const { product, targetAudience, campaignGoal, tone } = req.body;
+    const {
+      product,
+      targetAudience,
+      campaignGoal,
+      tone,
+      companyName,
+      callToActionLink,
+      customPrompt,
+    } = req.body;
 
     // Validate input
-    if (!product || !targetAudience || !campaignGoal || !tone) {
+    if (
+      !product ||
+      !targetAudience ||
+      !campaignGoal ||
+      !tone ||
+      !companyName ||
+      !callToActionLink
+    ) {
       return res.status(400).json({
         success: false,
         message:
-          "Product, target audience, campaign goal, and tone are required.",
+          "Product, target audience, campaign goal, tone, company name, and call to action link are required.",
       });
     }
 
@@ -110,6 +129,9 @@ app.post("/generate-campaign", async (req, res) => {
       campaignGoal,
       tone,
       festival,
+      companyName,
+      callToAction: callToActionLink,
+      customPrompt,
     });
 
     // Generate content with Google Generative AI
@@ -117,9 +139,10 @@ app.post("/generate-campaign", async (req, res) => {
     const { text } = result.response;
 
     // Generate campaign image as Base64
-    const imageBase64 = await generateImage(
-      `${product} campaign with festival theme`
-    );
+    const imageDescription = `${product} campaign featuring ${
+      festival ? festival : "a general theme"
+    } with a focus on ${targetAudience}. Company: ${companyName}. Tone: ${tone}.`;
+    const imageBase64 = await generateImage(imageDescription);
 
     // Respond with campaign details and image blob
     res.json({
