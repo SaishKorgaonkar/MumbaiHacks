@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [isSpinning, setIsSpinning] = useState(false);
@@ -29,15 +30,19 @@ function Navbar() {
           <div className="hidden md:flex space-x-8 font-medium">
             {["Home", "Features", "Services", "Pricing", "Contact Us"].map(
               (item) => (
-                <a
+                <Link
                   key={item}
-                  href={`#${item.toLowerCase().replace(" ", "-")}`}
+                  to={
+                    item === "Home"
+                      ? "/"
+                      : `/${item.toLowerCase().replace(" ", "-")}`
+                  }
                   className="relative group transition duration-300"
                 >
                   <span className="hover:text-teal-400">{item}</span>
                   {/* Underline Effect */}
                   <span className="absolute left-0 bottom-0 w-full h-0.5 bg-teal-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                </a>
+                </Link>
               )
             )}
           </div>
@@ -45,12 +50,12 @@ function Navbar() {
           {/* Login/Signup and Mobile Menu */}
           <div className="flex items-center space-x-4">
             {/* Login/Signup Button */}
-            <a
-              href="#"
+            <Link
+              to="/login"
               className="hidden md:inline-block bg-gradient-to-r from-teal-400 to-green-500 hover:from-teal-500 hover:to-green-600 text-gray-900 px-5 py-2 rounded-full font-bold transition duration-300 transform hover:scale-105 shadow-lg"
             >
               Login / Sign Up
-            </a>
+            </Link>
 
             {/* Mobile Menu Button */}
             <button
@@ -82,21 +87,25 @@ function Navbar() {
           <div className="px-4 py-2 space-y-2">
             {["Home", "Features", "Services", "Pricing", "Contact Us"].map(
               (item) => (
-                <a
+                <Link
                   key={item}
-                  href={`#${item.toLowerCase().replace(" ", "-")}`}
+                  to={
+                    item === "Home"
+                      ? "/"
+                      : `/${item.toLowerCase().replace(" ", "-")}`
+                  }
                   className="block text-left py-2 hover:text-teal-400 transition duration-300 font-semibold"
                 >
                   {item}
-                </a>
+                </Link>
               )
             )}
-            <a
-              href="#"
+            <Link
+              to="/login"
               className="block bg-teal-500 hover:bg-teal-400 text-gray-900 px-4 py-2 rounded-full font-bold transition duration-300 text-center shadow-lg transform hover:scale-105"
             >
               Login / Sign Up
-            </a>
+            </Link>
           </div>
         </div>
       )}

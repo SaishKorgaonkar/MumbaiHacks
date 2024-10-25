@@ -1,5 +1,5 @@
-import React from 'react';
-import { FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import React from "react";
+import { FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 function Footer() {
   return (
@@ -8,16 +8,28 @@ function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center mb-6">
           {/* Links Section */}
           <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
-            <a href="#about" className="hover:text-teal-400 transition duration-300">
+            <a
+              href="#about"
+              className="hover:text-teal-400 transition duration-300"
+            >
               About Us
             </a>
-            <a href="#terms" className="hover:text-teal-400 transition duration-300">
+            <a
+              href="#terms"
+              className="hover:text-teal-400 transition duration-300"
+            >
               Terms of Service
             </a>
-            <a href="#privacy" className="hover:text-teal-400 transition duration-300">
+            <a
+              href="#privacy"
+              className="hover:text-teal-400 transition duration-300"
+            >
               Privacy Policy
             </a>
-            <a href="#contact" className="hover:text-teal-400 transition duration-300">
+            <a
+              href="#contact"
+              className="hover:text-teal-400 transition duration-300"
+            >
               Contact Information
             </a>
           </div>

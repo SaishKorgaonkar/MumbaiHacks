@@ -1,6 +1,6 @@
 import React from "react";
 
-function App() {
+function LandingPage() {
   return (
     <div className="bg-gradient-to-b from-gray-900 to-black text-white min-h-screen font-sans">
 
@@ -62,4 +62,4 @@ function App() {
   );
 }
 
-export default App;
+export default LandingPage;
