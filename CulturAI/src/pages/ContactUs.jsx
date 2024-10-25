@@ -40,7 +40,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-gray-900 to-gray-800 text-white min-h-screen flex flex-col items-center justify-center p-4">
+    <div className="bg-gradient-to-b to-gray-900 from-black text-white min-h-screen w-[99vw]  flex flex-col items-center justify-center p-4">
       <h1 className="text-4xl font-bold mb-8 text-teal-400">Contact Us</h1>
 
       {isSubmitted ? (

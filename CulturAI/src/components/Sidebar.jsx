@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaTachometerAlt, FaBullhorn, FaChartLine, FaFileAlt, FaCog, FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
 
 function Sidebar() {
-  const [isCollapsed, setIsCollapsed] = useState(false); // State to toggle sidebar
+  const [isCollapsed, setIsCollapsed] = useState(true); // State to toggle sidebar
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
@@ -10,7 +10,7 @@ function Sidebar() {
   };
 
   return (
-    <div className={`flex flex-col fixed z-40 h-screen bg-gray-900 text-white transition-all duration-300 ${isCollapsed ? 'w-20' : 'w-64'} p-4 shadow-lg`}>
+    <div className={`flex flex-col fixed z-40 h-screen bg-gray-900 text-white transition-all duration-300 ${isCollapsed ? 'w-16' : 'w-64'} p-4 shadow-lg`}>
       {/* Toggle Button */}
       <button 
         onClick={toggleSidebar} 

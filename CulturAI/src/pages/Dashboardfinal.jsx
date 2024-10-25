@@ -230,9 +230,9 @@ function TwoColumnForm() {
       </div>
 
       {/* Right side - Empty div */}
-      <div className="flex-1 w-full relative flex items-center justify-center bg-gray-100/20 rounded-lg shadow-lg ml-6">
+      <div className="flex-1 max-h-[600px] overflow-y-scroll pt-96 pb-2 w-full relative flex items-center justify-center bg-gray-100/20 rounded-lg shadow-lg ml-6 p-8">
       {campaignDetails && (
-          <div className="mt-8 bg-gray-700 p-6 rounded-lg">
+          <div className="text-sm bg-gray-700 pt-2 px-6 pb-2 rounded-lg">
             <h2 className="text-2xl font-semibold mb-4">Campaign Details</h2>
             <p className="mb-2">Text: {campaignDetails.text}</p>
             <p className="mb-2">Best Time to Campaign: {campaignDetails.bestCampaignTime}</p>
@@ -246,10 +246,10 @@ function TwoColumnForm() {
             )}
           </div>
         )}
-        <div className='absolute bottom-2 right-2 rounded-full py-1 pb-1.5 shadow-xl
+        <div className='bottom-2 right-2 rounded-full py-1 pb-1.5 shadow-xl
          px-4 text-xl flex items-center justify-center
           text-teal-400 font-semibold hover:bg-white/40 transition hover:cursor-pointer 
-          bg-white/20'
+          bg-white/20 fixed'
         >
           Share
         </div>

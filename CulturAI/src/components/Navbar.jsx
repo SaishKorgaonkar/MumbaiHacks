@@ -28,7 +28,7 @@ function Navbar() {
 
           {/* Menu Items */}
           <div className="hidden md:flex space-x-8 font-medium">
-            {["Home", "Features", "Services", "Pricing", "Contact Us"].map(
+            {["Home", "Features",  "Pricing", "Contact Us"].map(
               (item) => (
                 <Link
                   key={item}
