@@ -135,8 +135,9 @@ app.post("/generate-campaign", async (req, res) => {
     });
 
     // Generate content with Google Generative AI
-    const result = await model.generateContent([prompt]);
-    const { text } = result.response;
+    const result = await model.generateContent(prompt);
+    const text = result.response.text();
+    console.log(result.response.text());
 
     // Generate campaign image as Base64
     const imageDescription = `${product} campaign featuring ${
