@@ -30,7 +30,7 @@ function TwoColumnForm() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row w-full   bg-black p-4 overflow-hidden">
+    <div className="flex flex-col md:flex-row w-[99vw]  bg-black p-24 justify-center overflow-hidden">
       {/* Left side - Form */}
       <div
         className={`bg-gray-100/20 h-full p-6 rounded-lg shadow-lg transition-all duration-500 ease-in-out ${
@@ -42,7 +42,8 @@ function TwoColumnForm() {
             
             
           )}
-          className="text-2xl font-bold mb-4 cursor-pointer flex items-center justify-start"
+          className="text-2xl font-bold mb-4 cursor-pointer flex items-center
+           justify-start hover:scale-105 transition"
         >
           <IoOptionsOutline size={35} color='white' />
         </h2>
@@ -225,7 +226,12 @@ function TwoColumnForm() {
         </form>
 
         {/* Display campaign details after submission */}
-        {campaignDetails && (
+        
+      </div>
+
+      {/* Right side - Empty div */}
+      <div className="flex-1 w-full relative flex items-center justify-center bg-gray-100/20 rounded-lg shadow-lg ml-6">
+      {campaignDetails && (
           <div className="mt-8 bg-gray-700 p-6 rounded-lg">
             <h2 className="text-2xl font-semibold mb-4">Campaign Details</h2>
             <p className="mb-2">Text: {campaignDetails.text}</p>
@@ -240,11 +246,6 @@ function TwoColumnForm() {
             )}
           </div>
         )}
-      </div>
-
-      {/* Right side - Empty div */}
-      <div className="flex-1 w-full relative flex items-center justify-center bg-gray-100/20 rounded-lg shadow-lg ml-6">
-        {/* Empty Space */}
         <div className='absolute bottom-2 right-2 rounded-full py-1 pb-1.5 shadow-xl
          px-4 text-xl flex items-center justify-center
           text-teal-400 font-semibold hover:bg-white/40 transition hover:cursor-pointer 

@@ -6,10 +6,11 @@ function Sidebar() {
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
+    
   };
 
   return (
-    <div className={`flex flex-col h-screen bg-gray-900 text-white transition-all duration-300 ${isCollapsed ? 'w-20' : 'w-64'} p-4 shadow-lg`}>
+    <div className={`flex flex-col fixed z-40 h-screen bg-gray-900 text-white transition-all duration-300 ${isCollapsed ? 'w-20' : 'w-64'} p-4 shadow-lg`}>
       {/* Toggle Button */}
       <button 
         onClick={toggleSidebar} 
