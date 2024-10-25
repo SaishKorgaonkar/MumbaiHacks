@@ -39,11 +39,17 @@ function App() {
         <div className="flex-grow bg-gradient-to-b from-gray-900 to-gray-800 text-white min-h-screen">
           <Navbar />
           
-            <LandingPage />
-            <Features/>
-            <Pricing/>
-            <ContactUs/>
-            
+
+            <Routes>
+              <Route path="/" element={<>
+                  <LandingPage />
+                  <Features/>
+                  <Pricing/>
+                  <ContactUs />
+
+              </>} />
+              <Route path="/dashboard" element={<Dashboardfinal />} />
+            </Routes>
             <Footer />
         </div>
       </div>
