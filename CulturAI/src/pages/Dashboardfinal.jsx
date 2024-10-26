@@ -20,7 +20,7 @@ function TwoColumnForm() {
     console.log("Form Data:", data);
     // Send data to the backend
     try {
-      const response = await fetch("http://localhost:3000/generate-campaign", {
+      const response = await fetch("https://cultur-ai-backend.onrender.com/generate-campaign", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -180,6 +180,24 @@ function TwoColumnForm() {
                 className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded-lg shadow-sm
                            focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400 transition
                            duration-300"
+              />
+            )}
+          />
+
+                    {/* City */}
+          <Controller
+            name="city"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <input
+                {...field}
+                type="text"
+                placeholder="City"
+                className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded-lg shadow-sm
+                          focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400 transition
+                          duration-300 placeholder-gray-400"
+                required
               />
             )}
           />
