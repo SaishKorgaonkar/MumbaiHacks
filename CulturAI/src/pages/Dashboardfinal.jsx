@@ -11,6 +11,7 @@ import { SiGmail } from "react-icons/si";
 
 function TwoColumnForm() {
   const [isOpen, setIsOpen] = useState(true);
+  const [ isLoading, setIsLoading ] = useState(false);
   
   const [campaignDetails, setCampaignDetails] = useState(null);
   const { control, handleSubmit, watch } = useForm();
@@ -20,12 +21,14 @@ function TwoColumnForm() {
     console.log("Form Data:", data);
     // Send data to the backend
     try {
+      setIsLoading(true);
       const response = await fetch("https://cultur-ai-backend.onrender.com/generate-campaign", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
       const result = await response.json();
+      setIsLoading(false);
       console.log("Response from server:", result);
       setCampaignDetails(result.details); // Store campaign details in state
     } catch (error) {
@@ -266,8 +269,16 @@ function TwoColumnForm() {
                 className="mt-4 rounded-lg"
               />
             )}
+            
           </div>
         )}
+        {
+            isLoading && (
+              <div className='absolute top-1/2 w-1/2 ml-56 '>
+              <span className='text-xl  text-neutral-200 font-semibold '>Generating ...</span>
+            </div>
+            )
+          }
         <div className='fixed bottom-0 right-20 rounded-full py-1 pb-1.5 
          px-4 text-xl flex gap-2 items-center justify-center
          '
@@ -292,6 +303,7 @@ function TwoColumnForm() {
               <SiGmail size={25} color='red'/> gmail
             </div>
           </a>
+          
           
         </div>
       </div>
