@@ -16,6 +16,7 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import MarketingAnalysis from "./pages/MarketingAnalysis"
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyDSqMOYZzRimSPc2ygGqX_QtIuHCY_ecmo",
   authDomain: "culturai-9fcdc.firebaseapp.com",
@@ -53,6 +54,7 @@ function App() {
               <Route path="/analytics" element={<MarketingAnalysis />} />
 
             </Routes>
+            
             <Footer />
         </div>
       </div>

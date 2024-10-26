@@ -273,15 +273,26 @@ function TwoColumnForm() {
          '
           
         >
-          <div className='bg-white/30 px-4 py-1 rounded-full flex items-center justify-center gap-2 '>
-            <FaGithub size={25} color='black'/> github
-          </div>
-          <div className='bg-white/30 px-4 py-1 rounded-full flex items-center justify-center gap-2 '>
-            <FaTwitter size={25} color='cyan'/> twitter
-          </div>
-          <div className='bg-white/30 px-4 py-1 rounded-full flex items-center justify-center gap-2 '>
-            <SiGmail size={25} color='red'/> gmail
-          </div>
+         <a href="https://www.github.com" target="_blank" rel="noopener noreferrer">
+        <div className='bg-white/30 px-4 py-1 rounded-full flex items-center justify-center gap-2'>
+          <FaGithub size={25} color='black' /> github
+        </div>
+      </a>
+
+      <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+        <div className='bg-white/30 px-4 py-1 rounded-full flex items-center justify-center gap-2'>
+          <FaTwitter size={25} color='cyan' /> twitter
+        </div>
+      </a>
+          
+          <a href="mailto:example@example.com" target="_blank" rel="noopener noreferrer">
+          <div 
+            
+            className='bg-white/30 px-4 py-1 rounded-full flex items-center justify-center gap-2 '>
+              <SiGmail size={25} color='red'/> gmail
+            </div>
+          </a>
+          
         </div>
       </div>
     </div>

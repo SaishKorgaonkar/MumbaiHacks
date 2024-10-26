@@ -43,16 +43,9 @@ function Sidebar() {
     }
   };
 
-  const handleNavigation = useCallback(
-    (route) => {
-      if (user) {
-        router(route);
-      } else {
-        setIsLoginModalOpen(true);
-      }
-    },
-    [router, setIsLoginModalOpen, user]
-  );
+  const handleNavigation = (route) => {
+    router(route);
+  }
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
@@ -87,7 +80,7 @@ function Sidebar() {
             <li 
               key={index} 
               onClick={() => handleNavigation(item.route)}
-              className={`flex items-center space-x-2 rounded-lg p-2 transition duration-300 transform hover:scale-105 ${isCollapsed ? 'justify-center' : 'justify-start'} hover:bg-gray-700`}
+              className={`flex items-center space-x-2 rounded-lg p-2 hover:cursor-pointer transition duration-300 transform hover:scale-105 ${isCollapsed ? 'justify-center' : 'justify-start'} hover:bg-gray-700`}
             >
               {item.icon}
               {!isCollapsed && (
