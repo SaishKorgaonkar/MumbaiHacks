@@ -21,7 +21,6 @@ const ContactUs = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate form submission (API call here)
     console.log(formData);
 
     await new Promise(resolve => setTimeout(resolve, 2000));
