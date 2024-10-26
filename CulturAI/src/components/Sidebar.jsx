@@ -72,7 +72,6 @@ function Sidebar() {
         <ul className="space-y-4">
           {[
             { name: 'Dashboard', icon: <FaTachometerAlt className="w-5 h-5" />, route: '/dashboard' },
-            { name: 'Campaigns', icon: <FaBullhorn className="w-5 h-5" />, route: '/campaigns' },
             { name: 'Analytics', icon: <FaChartLine className="w-5 h-5" />, route: '/analytics' },
             { name: 'Reports', icon: <FaFileAlt className="w-5 h-5" />, route: '/reports' },
             { name: 'Settings', icon: <FaCog className="w-5 h-5" />, route: '/settings' },

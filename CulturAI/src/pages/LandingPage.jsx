@@ -13,7 +13,7 @@ function LandingPage() {
           Our platform leverages AI to provide insights tailored for Indian consumers, maximizing the effectiveness of your marketing efforts.
         </p>
         <button
-          onClick={() => {}}
+          onClick={() => {window.location.href = "/dashboard"}}
         className="bg-gradient-to-r from-teal-500 to-blue-500 hover:from-blue-500 hover:to-teal-500 text-white py-3 px-8 rounded-full font-semibold text-lg transition duration-500 transform hover:scale-105 shadow-lg animate-bounceSlow">
           Get Started
         </button>

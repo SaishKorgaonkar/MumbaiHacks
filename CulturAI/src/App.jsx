@@ -10,6 +10,8 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Pricing from './pages/Pricing';
 import Features from './pages/Features';
+import CampaignPage from './pages/Campaigns';
+import Settings from './pages/Settings';
 
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
@@ -49,6 +51,8 @@ function App() {
               </>} />
               <Route path="/dashboard" element={<Dashboardfinal />} />
               <Route path="/analytics" element={<MarketingAnalysis />} />
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/reports" element={<CampaignPage />} />
             </Routes>
             
             <Footer />

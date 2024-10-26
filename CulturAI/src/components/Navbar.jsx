@@ -16,6 +16,7 @@ function Navbar() {
   const handleLogoClick = () => {
     setIsSpinning(true);
     setTimeout(() => setIsSpinning(false), 1000);
+    window.location.href = "/";
   };
 
   const handleGoogleLogin = async () => {
