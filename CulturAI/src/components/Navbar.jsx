@@ -3,8 +3,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../App"; // Import Firebase authentication
 import { signInWithPopup, GoogleAuthProvider, signInAnonymously } from "firebase/auth";
+import { useCurrentUser } from '../authService';
+import { FcGoogle } from "react-icons/fc";
+import { FaUserSecret } from "react-icons/fa6";
 
 function Navbar() {
+
+  const currentUser = useCurrentUser();
+
   const [isSpinning, setIsSpinning] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -56,7 +62,9 @@ function Navbar() {
           </div>
 
           {/* Menu Items */}
-          <div className="hidden md:flex space-x-8 font-medium">
+          {
+            !currentUser && (
+              <div className="hidden md:flex space-x-8 font-medium">
             {["Home", "Features",  "Pricing", "Contact Us"].map(
               (item) => (
                 <Link
@@ -75,6 +83,8 @@ function Navbar() {
               )
             )}
           </div>
+            )
+          }
 
           {/* Login/Signup or User Profile and Mobile Menu */}
           <div className="flex items-center space-x-4">
@@ -169,15 +179,15 @@ function Navbar() {
             </h2>
             <button
               onClick={handleGoogleLogin}
-              className="bg-blue-500 text-white px-4 py-2 rounded-full mb-4 w-full transition hover:bg-blue-600"
+              className="bg-blue-500 text-white flex items-center justify-center gap-4 px-4 py-2 rounded-full mb-4 w-full transition hover:bg-blue-600"
             >
-              Sign in with Google
+             <FcGoogle size={25}/> Sign in with Google
             </button>
             <button
               onClick={handleAnonymousLogin}
-              className="bg-gray-500 text-white px-4 py-2 rounded-full w-full transition hover:bg-gray-600"
+              className="bg-gray-500 text-white flex items-center justify-center gap-4 px-4 py-2 rounded-full w-full transition hover:bg-gray-600"
             >
-              Sign in Anonymously
+             <FaUserSecret size={25} color="black"/> Sign in Anonymously
             </button>
             <button
               onClick={() => setIsLoginModalOpen(false)}
