@@ -38,7 +38,7 @@ const ContactUs = () => {
 
   return (
     <div className="bg-gradient-to-b from-black via-gray-900 to-gray-800 text-white min-h-screen w-full flex flex-col items-center justify-center p-4 relative">
-      {/* Decorative background pattern */}
+      {/* Decorative background patterns */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute bg-gradient-radial from-teal-500 opacity-20 h-80 w-80 rounded-full -top-20 -left-20"></div>
         <div className="absolute bg-gradient-radial from-blue-500 opacity-10 h-96 w-96 rounded-full -bottom-10 -right-16"></div>
