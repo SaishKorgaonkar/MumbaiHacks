@@ -181,6 +181,24 @@ function TwoColumnForm() {
             )}
           />
 
+                    {/* City */}
+          <Controller
+            name="city"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <input
+                {...field}
+                type="text"
+                placeholder="City"
+                className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded-lg shadow-sm
+                          focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400 transition
+                          duration-300 placeholder-gray-400"
+                required
+              />
+            )}
+          />
+
           {/* Prompt Template */}
           <Controller
             name="promptTemplate"

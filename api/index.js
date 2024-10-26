@@ -50,6 +50,7 @@ function generateMarketingPrompt({
   companyName,
   callToAction,
   promptTemplate,
+  city,
 }) {
   return `Create a marketing campaign for a product. 
           Company: ${companyName}.
@@ -103,6 +104,7 @@ app.post("/generate-campaign", async (req, res) => {
       companyName,
       callToActionLink,
       promptTemplate,
+      city,
     } = req.body;
     console.log(promptTemplate);
 
@@ -113,7 +115,8 @@ app.post("/generate-campaign", async (req, res) => {
       !campaignGoal ||
       !tone ||
       !companyName ||
-      !callToActionLink
+      !callToActionLink ||
+      !city
     ) {
       return res.status(400).json({
         success: false,
@@ -141,7 +144,7 @@ app.post("/generate-campaign", async (req, res) => {
     console.log(result.response.text());
 
     // Generate campaign image as Base64
-    const imageDescription = `${product} campaign featuring ${
+    const imageDescription = `${product} campaign in ${city} as background and featuring ${
       festival ? festival : "a general theme"
     } with a focus on ${targetAudience}. Company: ${companyName}. Tone: ${tone}. ${promptTemplate}`;
     console.log("Image Description:", imageDescription);
