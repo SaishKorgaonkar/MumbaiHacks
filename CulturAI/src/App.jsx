@@ -14,6 +14,7 @@ import Features from './pages/Features';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
+import MarketingAnalysis from "./pages/MarketingAnalysis"
 
 const firebaseConfig = {
   apiKey: "AIzaSyDSqMOYZzRimSPc2ygGqX_QtIuHCY_ecmo",
@@ -49,6 +50,8 @@ function App() {
 
               </>} />
               <Route path="/dashboard" element={<Dashboardfinal />} />
+              <Route path="/analytics" element={<MarketingAnalysis />} />
+
             </Routes>
             <Footer />
         </div>

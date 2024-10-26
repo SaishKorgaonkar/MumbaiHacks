@@ -10,11 +10,14 @@ import { FaUserSecret } from "react-icons/fa6";
 function Navbar() {
 
   const currentUser = useCurrentUser();
+  
 
   const [isSpinning, setIsSpinning] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [user, setUser] = useState(null);
+
+  
 
   // Spin logo animation
   const handleLogoClick = () => {
@@ -23,7 +26,7 @@ function Navbar() {
   };
 
   // Handle Google Login
-  const handleGoogleLogin = async () => {
+    const handleGoogleLogin = async () => {
     const provider = new GoogleAuthProvider();
     try {
       const result = await signInWithPopup(auth, provider);

@@ -5,9 +5,12 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Tooltip } from "@mui/material"; // For better descriptions
 import ReactMarkdown from 'react-markdown';
+import { FaGithub } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 
 function TwoColumnForm() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   
   const [campaignDetails, setCampaignDetails] = useState(null);
   const { control, handleSubmit, watch } = useForm();
@@ -134,7 +137,7 @@ function TwoColumnForm() {
             control={control}
             defaultValue="Professional"
             render={({ field }) => (
-              <select {...field} className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded-lg shadow-sm
+              <select {...field} className="w-full  p-2 bg-gray-800 text-white border border-gray-600 rounded-lg shadow-sm
                        focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400 transition
                        duration-300">
                 <option value="Professional">Professional</option>
@@ -231,7 +234,7 @@ function TwoColumnForm() {
       </div>
 
       {/* Right side - Empty div */}
-      <div className="flex-1 max-h-[600px] overflow-y-scroll pt-96 pb-2 w-full relative flex items-center justify-center bg-gray-100/20 rounded-lg shadow-lg ml-6 p-8">
+      <div className={`flex-1 max-h-[600px] overflow-y-scroll ${isOpen? 'pt-96' : 'p-96'} pb-2 w-full relative flex items-center justify-center bg-gray-100/20 rounded-lg shadow-lg ml-6 p-8`}>
       {campaignDetails && (
           <div className="text-sm bg-gray-700 pt-2 px-6 pb-2 rounded-lg">
             <h2 className="text-2xl font-semibold mb-4">Campaign Details</h2>
@@ -247,12 +250,20 @@ function TwoColumnForm() {
             )}
           </div>
         )}
-        <div className='bottom-2 right-2 rounded-full py-1 pb-1.5 shadow-xl
-         px-4 text-xl flex items-center justify-center
-          text-teal-400 font-semibold hover:bg-white/40 transition hover:cursor-pointer 
-          bg-white/20 fixed'
+        <div className='fixed bottom-0 right-20 rounded-full py-1 pb-1.5 
+         px-4 text-xl flex gap-2 items-center justify-center
+         '
+          
         >
-          Share
+          <div className='bg-white/30 px-4 py-1 rounded-full flex items-center justify-center gap-2 '>
+            <FaGithub size={25} color='black'/> github
+          </div>
+          <div className='bg-white/30 px-4 py-1 rounded-full flex items-center justify-center gap-2 '>
+            <FaTwitter size={25} color='cyan'/> twitter
+          </div>
+          <div className='bg-white/30 px-4 py-1 rounded-full flex items-center justify-center gap-2 '>
+            <SiGmail size={25} color='red'/> gmail
+          </div>
         </div>
       </div>
     </div>

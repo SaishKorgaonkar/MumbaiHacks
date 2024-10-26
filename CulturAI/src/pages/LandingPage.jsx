@@ -2,7 +2,7 @@ import React from "react";
 
 function LandingPage() {
   return (
-    <div className="bg-gradient-to-b from-gray-900 to-black text-white min-h-screen font-sans">
+    <div className="bg-gradient-to-b from-gray-900 to-black text-white min-h-screen pt-32 font-sans">
 
       {/* Hero Section */}
       <header className="flex flex-col items-center justify-center text-center py-32 px-6 space-y-6 animate-fadeIn">
@@ -12,7 +12,9 @@ function LandingPage() {
         <p className="text-lg md:text-2xl text-gray-300 max-w-2xl opacity-80 leading-relaxed animate-fadeIn">
           Our platform leverages AI to provide insights tailored for Indian consumers, maximizing the effectiveness of your marketing efforts.
         </p>
-        <button className="bg-gradient-to-r from-teal-500 to-blue-500 hover:from-blue-500 hover:to-teal-500 text-white py-3 px-8 rounded-full font-semibold text-lg transition duration-300 transform hover:scale-105 shadow-lg animate-bounceSlow">
+        <button
+          onClick={() => {}}
+        className="bg-gradient-to-r from-teal-500 to-blue-500 hover:from-blue-500 hover:to-teal-500 text-white py-3 px-8 rounded-full font-semibold text-lg transition duration-500 transform hover:scale-105 shadow-lg animate-bounceSlow">
           Get Started
         </button>
       </header>
@@ -25,7 +27,7 @@ function LandingPage() {
         <div className="grid md:grid-cols-3 gap-12">
           
           {/* Feature 1 */}
-          <div className="bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 animate-fadeIn">
+          <div className="bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl  transition duration-500 transform hover:scale-105 animate-fadeIn">
             <div className="flex justify-center items-center text-teal-400 text-5xl mb-6 animate-pulse">
               🌍
             </div>
@@ -36,7 +38,7 @@ function LandingPage() {
           </div>
 
           {/* Feature 2 */}
-          <div className="bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 animate-fadeIn">
+          <div className="bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl  duration-500 transform hover:scale-105 animate-fadeIn">
             <div className="flex justify-center items-center text-teal-400 text-5xl mb-6 animate-pulse">
               🎨
             </div>
@@ -47,7 +49,7 @@ function LandingPage() {
           </div>
 
           {/* Feature 3 */}
-          <div className="bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 animate-fadeIn">
+          <div className="bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl  duration-500 transform hover:scale-105 animate-fadeIn">
             <div className="flex justify-center items-center text-teal-400 text-5xl mb-6 animate-pulse">
               📊
             </div>

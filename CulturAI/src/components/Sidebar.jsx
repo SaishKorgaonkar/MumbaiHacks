@@ -1,13 +1,13 @@
 import { useNavigate } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { FaTachometerAlt, FaBullhorn, FaChartLine, FaFileAlt, FaCog, FaUserCircle, FaSignOutAlt, FaUserSecret } from 'react-icons/fa';
-import { FcGoogle } from 'react-icons/fc'; // Import Google icon
-import { useCurrentUser } from '../authService';
+import { FcGoogle } from 'react-icons/fc';
 import { auth } from "../App"; 
-import { signInWithPopup, GoogleAuthProvider, signInAnonymously } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider, signInAnonymously, signOut } from "firebase/auth";
+
 
 function Sidebar() {
-  const currentUser = useCurrentUser();
+  const [user, setUser] = useState(null);
   const router = useNavigate();
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -17,7 +17,7 @@ function Sidebar() {
     try {
       const result = await signInWithPopup(auth, provider);
       setIsLoginModalOpen(false);
-      // Update user state if needed, e.g., useCurrentUser() or context
+      setUser(result.user);
     } catch (error) {
       console.error("Error with Google sign-in:", error.message);
     }
@@ -27,19 +27,32 @@ function Sidebar() {
     try {
       const result = await signInAnonymously(auth);
       setIsLoginModalOpen(false);
-      // Update user state if needed, e.g., useCurrentUser() or context
+      setUser(result.user);
     } catch (error) {
       console.error("Error with Anonymous sign-in:", error.message);
     }
   };
 
-  const handleNavigation = (route, currentUser) => {
-    if (currentUser) {
-      router(route);
-    } else {
-      setIsLoginModalOpen(true);
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      setUser(null); // Clear the user state on logout
+      handleNavigation('/')
+    } catch (error) {
+      console.error("Error with sign-out:", error.message);
     }
   };
+
+  const handleNavigation = useCallback(
+    (route) => {
+      if (user) {
+        router(route);
+      } else {
+        setIsLoginModalOpen(true);
+      }
+    },
+    [router, setIsLoginModalOpen, user]
+  );
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
@@ -89,9 +102,12 @@ function Sidebar() {
 
       <div className="mt-auto flex items-center space-x-2 hover:text-teal-400 transition duration-300">
         <FaUserCircle className="w-8 h-8" />
-        {!isCollapsed && <span className="text-sm">{currentUser ? currentUser.displayName : 'User Name'}</span>}
+        {!isCollapsed && <span className="text-sm">{user ? user.displayName : 'User Name'}</span>}
       </div>
-      <button className="flex items-center mt-4 space-x-2 text-red-500 hover:text-red-400 transition duration-300">
+      <button
+        onClick={handleLogout}
+        className="flex items-center mt-4 space-x-2 text-red-500 hover:text-red-400 transition duration-300"
+      >
         <FaSignOutAlt className="w-5 h-5" />
         {!isCollapsed && <span>Logout</span>}
       </button>
