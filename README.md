@@ -17,7 +17,7 @@ Cultur.AI was recognized as a top finalist project in Mumbai Hacks, the world's 
 
 This project would not have been possible without the efforts of all our contributors:
 
-[![Saish Korgaonkar](https://github.com/SaishKorgaonkar.png?size=100)](https://github.com/SaishKorgaonkar)
-[![Pradyum Mistry](https://github.com/altf4-games.png?size=100)](https://github.com/altf4-games)
-[![Rahul Kadam](https://github.com/rahulKadam1264.png?size=100)](https://github.com/rahulKadam1264)
-[![Raunak Kumar Gupta](https://github.com/Raunakg2005.png?size=100)](https://github.com/Raunakg2005)
+- **[Saish Korgaonkar](https://github.com/SaishKorgaonkar)**
+- **[Pradyum Mistry](https://github.com/altf4-games)**
+- **[Rahul Kadam](https://github.com/rahulKadam1264)**
+- **[Raunak Kumar Gupta](https://github.com/Raunakg2005)**
